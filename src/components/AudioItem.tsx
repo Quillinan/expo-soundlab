@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 
 type Props = {
   name: string;
@@ -10,8 +17,20 @@ type Props = {
 
 export function AudioItem({ name, onPlay, onDelete }: Props) {
   return (
-    <View style={styles.audioItem}>
-      <Text style={styles.audioText}>{name}</Text>
+    <View style={styles.container}>
+      <ScrollView
+        style={styles.nameContainer}
+        contentContainerStyle={{
+          paddingRight: 10,
+          justifyContent: "center",
+          flexGrow: 1,
+        }}
+        nestedScrollEnabled
+        showsVerticalScrollIndicator={true}
+      >
+        <Text style={styles.name}>{name}</Text>
+      </ScrollView>
+
       <View style={styles.actions}>
         <TouchableOpacity onPress={onPlay}>
           <Text style={styles.icon}>▶️</Text>
@@ -24,16 +43,37 @@ export function AudioItem({ name, onPlay, onDelete }: Props) {
   );
 }
 
+const { width } = Dimensions.get("window");
+const ITEM_WIDTH = width * 0.8;
+
 const styles = StyleSheet.create({
-  audioItem: {
-    padding: 12,
+  container: {
+    width: ITEM_WIDTH,
+    height: 50,
     backgroundColor: "#f0f0f0",
     borderRadius: 8,
     marginBottom: 10,
     flexDirection: "row",
-    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    overflow: "hidden",
   },
-  audioText: { fontSize: 16 },
-  actions: { flexDirection: "row", gap: 10 },
-  icon: { fontSize: 20 },
+  nameContainer: {
+    width: "40%",
+    height: "100%",
+  },
+  name: {
+    fontSize: 16,
+  },
+  actions: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    flex: 1,
+    gap: 10,
+  },
+  icon: {
+    fontSize: 22,
+  },
 });

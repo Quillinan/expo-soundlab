@@ -19,7 +19,14 @@ export function AudioList({ data, onPlay, onDelete }: Props) {
     <FlatList
       data={data}
       keyExtractor={(item) => item.id}
-      style={{ marginTop: 20, width: "100%" }}
+      style={{
+        marginTop: 20,
+        width: "100%",
+      }}
+      contentContainerStyle={{
+        alignItems: "center",
+        width: "100%",
+      }}
       renderItem={({ item }) => (
         <AudioItem
           name={item.name}
