@@ -1,4 +1,4 @@
-# expo-soundlab
+# Expo-soundlab
 
 Aplicativo mobile desenvolvido com **React Native**, **TypeScript** e **Expo**.  
 Este projeto é um laboratório de funcionalidades relacionadas a **gravação de áudio**, **armazenamento local** com AsyncStorage e análise de áudio utilizando **TensorFlow.js**.
