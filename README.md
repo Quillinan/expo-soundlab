@@ -5,6 +5,16 @@ Este projeto é um laboratório de funcionalidades relacionadas a **gravação d
 
 ---
 
+## 📌 Tecnologias utilizadas
+
+- React Native
+- Expo
+- TypeScript
+- AsyncStorage
+- TensorFlow.js
+
+---
+
 ## 📋 Pré-requisitos
 
 Certifique-se de ter o **Node.js** e o **Expo CLI** instalados em sua máquina.
